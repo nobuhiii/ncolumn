@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>NCOLUMN.COM</title>
-    <link>https://ncolumn.com/</link>
-    <description>Recent content on NCOLUMN.COM</description>
+    <title>Posts on NCOLUMN.COM</title>
+    <link>https://ncolumn.com/post/</link>
+    <description>Recent content in Posts on NCOLUMN.COM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 06 May 2017 02:28:26 +0900</lastBuildDate>
     
-	<atom:link href="https://ncolumn.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ncolumn.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
