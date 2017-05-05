@@ -2,7 +2,7 @@
 categories = [""]
 date = "2017-05-06T02:28:26+09:00"
 description = ""
-draft = false 
+draft = true 
 slug = "sample"
 tags = ["",""]
 title = "sample"
