@@ -228,7 +228,7 @@
 
 <p>前回の記事、「<a href="https://ncolumn.com/post/first-post">Webマーケターのはしくれ、ブログはじめました</a>」の最後にも書いたとおり、このブログは静的サイトジェネレータの『Hugo』とGItHubが提供している静的サイトのホスティングサービス『GitHub Pages』を使っています。</p>
 
-<p>私はGitHubについてすら初心者ですのであらゆるところでつまずきまくりましたが、なんとか公開できました。</p>
+<p>GitHubについてすら初心者で、あらゆるところでつまずきまくりましたが、なんとか公開できました。</p>
 
 <p>いろんな記事を参考にさせていただいたのですが、</p>
 
@@ -259,7 +259,7 @@
 
 <h2 id="1-hugoとは">1. Hugoとは</h2>
 
-<p>Hugoとはgolang製の静的サイトジェネレータです。html／css／jsで構成されたサイトを効率よく作るためのフレームワークです。静的サイトジェネレータには他にも「Middleman」や「Jekyll」「Octopress」「Hexo」などがあるようです。</p>
+<p>Hugoとはgolang製の静的サイトジェネレータです。html／css／jsで構成されたサイトを効率よく作るためのフレームワークです。静的サイトジェネレータには他にも「Middleman」や「Jekyll」「Octopress」「Hexo」などがあるそうです。</p>
 
 <p><a href="https://www.staticgen.com/">静的サイトジェネレータの一覧</a></p>
 
@@ -277,7 +277,7 @@
 <li>動的な処理が苦手</li>
 </ul>
 
-<p>たぶん他にもメリット・デメリットはたくさんあるのでしょうが、まだ使い始めて間もなく、実感できている部分が少ないので、使用感についてはいつかまた書こうかと思います。</p>
+<p>たぶん他にもメリット・デメリットはたくさんあるのでしょうが、まだ使い始めて間もなく、実感できる部分が少ないので、使用感についてはいつかまた書こうかと思います。</p>
 
 <p>とりあえず、単純に記事を公開するだけで、サイト内にフォームを作ったり、データをDB管理する必要がなければHugoで十分な気がします。</p>
 
@@ -300,7 +300,7 @@
 <li>ソースコードなどサイトのファイルが公開される</li>
 </ul>
 
-<p>GitHub Pagesについてもまだ分かっていない部分が多いです。そもそもGitHubについても。なので、もっと使っていきます（ちゃんとブログ更新していきます）</p>
+<p>GitHub Pagesについてもまだ分かっていない部分が多いです。そもそもGitHubについても。なので、もっと使っていきます（ = ちゃんとブログ更新していきます）</p>
 
 <h2 id="3-記事公開までのおおまかな流れ">3. 記事公開までのおおまかな流れ</h2>
 
@@ -347,7 +347,7 @@ $ brew update
 
 <h2 id="5-作業ディレクトリの作成">5.作業ディレクトリの作成</h2>
 
-<p><code>hugo new site hogehoge</code>で、hogehogeという名前のディレクトリがカレントディレクトリに作成されます。今回はncolumnで作成します。</p>
+<p><code>hugo new site hogehoge</code>のコマンドで、hogehogeという名前のディレクトリがカレントディレクトリに作成されます。今回はncolumnで作成します。</p>
 
 <pre><code class="language-shell">$ hugo new site ncolumn
 </code></pre>
@@ -399,7 +399,7 @@ $ brew update
 
 <h2 id="6-hugoのテーマのインストール">6. Hugoのテーマのインストール</h2>
 
-<p><a href="https://themes.gohugo.io/">Hugoのテーマ</a>を選定し、<code>git clone</code>で落としてきます。
+<p><a href="https://themes.gohugo.io/">Hugoのテーマ</a>を選定し、<code>git clone</code>コマンドで落としてきます。
 今回は、<a href="https://themes.gohugo.io/hugo-tranquilpeak-theme/">Tranquilpeak</a>というテーマを使用しました。</p>
 
 <pre><code class="language-shell">$ cd themes
@@ -449,7 +449,7 @@ title = &quot;hogehoge&quot;
 
 <p>Hugoでは、<code>hugo server</code>コマンドを使うと、ローカルでサーバを立ち上げてプレビューを行えます。
 <code>http://127.0.0.1:1313/</code>で確認できます。
-ちなみに<code>hugo</code>だけで実行すると、ビルドして終了となります。</p>
+ちなみに<code>hugo</code>コマンドだけで実行すると、ビルドして終了となります。</p>
 
 <pre><code class="language-shell">$ hugo server -t hugo-tranquilpeak-theme -D -w
 </code></pre>
@@ -482,15 +482,17 @@ title = &quot;hogehoge&quot;
 </tbody>
 </table>
 
-<p>あと、テーマにあわせて<code>config.tmol</code>に設定を記述する必要があります。どんな設定が可能かは各テーマのドキュメントを読む必要があります。ちなみにTranquilpeakについては<a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md">こちら</a>で確認できます。<a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/exampleSite/config.toml">config.tomlのサンプル</a></p>
+<p>あと、テーマにあわせてconfig.tmolに設定を記述する必要があります。どんな設定が可能かは各テーマのドキュメントを読む必要があります。ちなみにTranquilpeakについては<a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md">こちら</a>で確認できます。<a href="https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/exampleSite/config.toml">config.tomlのサンプル</a></p>
 
 <p>config.tomlに設定を記述しなかった場合とした場合で、この時点では以下のような表示になるかと思います。</p>
 
-<p>config.tomlに設定を記述しなかった場合
-<img src="https://ncolumn.com/images/20170513_01.png" alt="設定した場合" /></p>
+<ul>
+<li><p>config.tomlに設定を記述しなかった場合
+<img src="https://ncolumn.com/images/20170513_01.png" alt="設定した場合" /></p></li>
 
-<p>config.tomlに設定を記述した場合
-<img src="https://ncolumn.com/images/20170513_02.png" alt="設定しなかった場合" /></p>
+<li><p>config.tomlに設定を記述した場合
+<img src="https://ncolumn.com/images/20170513_02.png" alt="設定しなかった場合" /></p></li>
+</ul>
 
 <p>ローカルでサーバを立ち上げ、プレビューで確認して問題なければ、記事ファイルを開き、<code>draft = false</code>に変更し、以下のコマンドで公開用のファイルを生成します。ここでも<code>-t</code>でテーマを指定します。</p>
 
@@ -586,11 +588,14 @@ CloudFlareのネームサーバ名は、管理画面のDNSタブで確認でき�
 
 <p><img src="https://ncolumn.com/images/20170513_08.png" alt="お名前.comでのネームサーバ変更画面_02" /></p>
 
-<p><img src="https://ncolumn.com/images/20170513_09.png" alt="お名前.comでのネームサーバ変更画面_03" /></p>
+<p>↓に~~ns.cloudflare.comを設定する
+<img src="https://ncolumn.com/images/20170513_09.png" alt="お名前.comでのネームサーバ変更画面_03" /></p>
 
 <h3 id="ssl化">SSL化</h3>
 
 <p>CloudFlareのCryptoタブで、SSLを有効化できます。</p>
+
+<p><img src="https://ncolumn.com/images/20170513_10.png" alt="SSL有効化の画面" /></p>
 
 <h2 id="11-記事をwebに公開">11. 記事をWebに公開</h2>
 
