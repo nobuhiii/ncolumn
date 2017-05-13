@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ncolumn.com/hugo/</loc>
+    <lastmod>2017-05-13T12:05:29+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ncolumn.com/first-post/</loc>
     <lastmod>2017-05-06T22:00:14+09:00</lastmod>
   </url>
@@ -24,19 +29,38 @@
   </url>
   
   <url>
+    <loc>https://ncolumn.com/tags/githubpages/</loc>
+    <lastmod>2017-05-13T12:05:29+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ncolumn.com/tags/hugo/</loc>
+    <lastmod>2017-05-13T12:05:29+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ncolumn.com/</loc>
-    <lastmod>2017-05-06T22:00:14+09:00</lastmod>
+    <lastmod>2017-05-13T12:05:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ncolumn.com/post/</loc>
-    <lastmod>2017-05-06T22:00:14+09:00</lastmod>
+    <lastmod>2017-05-13T12:05:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ncolumn.com/tags/</loc>
+    <lastmod>2017-05-13T12:05:29+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ncolumn.com/categories/tech/</loc>
+    <lastmod>2017-05-13T12:05:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   

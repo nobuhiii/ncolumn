@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Githubpages on NCOLUMN.COM</title>
+    <link>https://ncolumn.com/tags/githubpages/</link>
+    <description>Recent content in Githubpages on NCOLUMN.COM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 13 May 2017 12:05:29 +0900</lastBuildDate>
+    
+	<atom:link href="https://ncolumn.com/tags/githubpages/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo &#43; GitHub Pagesで独自メインのブログ作ってみました</title>
+      <link>https://ncolumn.com/hugo/</link>
+      <pubDate>Sat, 13 May 2017 12:05:29 +0900</pubDate>
+      
+      <guid>https://ncolumn.com/hugo/</guid>
+      <description>前回の記事、「Webマーケターのはしくれ、ブログはじめました」の最後にも書いたとおり、このブログは静的サイトジェネレータの『Hugo』とGI</description>
+    </item>
+    
+  </channel>
+</rss>
