@@ -6,10 +6,19 @@
     <description>Recent content on NCOLUMN.COM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 May 2017 12:05:29 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 14 May 2017 17:27:46 +0900</lastBuildDate>
     
 	<atom:link href="https://ncolumn.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>「デザイニングWebアクセシビリティ」（書籍）を読んで気になった点のまとめ</title>
+      <link>https://ncolumn.com/post/accessibility/</link>
+      <pubDate>Sun, 14 May 2017 17:27:46 +0900</pubDate>
+      
+      <guid>https://ncolumn.com/post/accessibility/</guid>
+      <description>「デザイニングWebアクセシビリティ - アクセシブルな設計やコンテンツ制作のアプローチ」（太田良典さん、伊原力也さん著）を読んだので気になった</description>
+    </item>
     
     <item>
       <title>Hugo &#43; GitHub Pagesで独自メインのブログ作ってみました</title>
