@@ -6,10 +6,19 @@
     <description>Recent content in Posts on NCOLUMN.COM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 May 2017 17:27:46 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 29 Jul 2017 10:00:19 +0900</lastBuildDate>
     
 	<atom:link href="https://ncolumn.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>スキルとか市場価値について、自分のキャリアを考えるときに思ったこと</title>
+      <link>https://ncolumn.com/post/value/</link>
+      <pubDate>Sat, 29 Jul 2017 10:00:19 +0900</pubDate>
+      
+      <guid>https://ncolumn.com/post/value/</guid>
+      <description>自分は何がやりたいんや〜、どんなキャリアを進むんや〜、と考える機会があったので、そのときに考えたことを思考の整理という意味も込めて残しておこ</description>
+    </item>
     
     <item>
       <title>「デザイニングWebアクセシビリティ」（書籍）を読んで気になった点のまとめ</title>

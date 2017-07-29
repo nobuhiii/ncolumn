@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ncolumn.com/post/value/</loc>
+    <lastmod>2017-07-29T10:00:19+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ncolumn.com/post/web-accessibility/</loc>
     <lastmod>2017-05-14T17:27:46+09:00</lastmod>
   </url>
@@ -29,7 +34,7 @@
   
   <url>
     <loc>https://ncolumn.com/categories/diary/</loc>
-    <lastmod>2017-05-06T22:00:14+09:00</lastmod>
+    <lastmod>2017-07-29T10:00:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -47,13 +52,13 @@
   
   <url>
     <loc>https://ncolumn.com/</loc>
-    <lastmod>2017-05-14T17:27:46+09:00</lastmod>
+    <lastmod>2017-07-29T10:00:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ncolumn.com/post/</loc>
-    <lastmod>2017-05-14T17:27:46+09:00</lastmod>
+    <lastmod>2017-07-29T10:00:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -70,13 +75,13 @@
   </url>
   
   <url>
-    <loc>https://ncolumn.com/categories/uiux/</loc>
+    <loc>https://ncolumn.com/tags/uiux/</loc>
     <lastmod>2017-05-14T17:27:46+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ncolumn.com/tags/uiux/</loc>
+    <loc>https://ncolumn.com/categories/uiux/</loc>
     <lastmod>2017-05-14T17:27:46+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -84,6 +89,12 @@
   <url>
     <loc>https://ncolumn.com/tags/%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B7%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3/</loc>
     <lastmod>2017-05-14T17:27:46+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ncolumn.com/tags/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2/</loc>
+    <lastmod>2017-07-29T10:00:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
