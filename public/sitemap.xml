@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ncolumn.com/post/gsacademy/</loc>
+    <lastmod>2017-08-29T00:57:37+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ncolumn.com/post/uxjam19/</loc>
     <lastmod>2017-08-03T20:42:04+09:00</lastmod>
   </url>
@@ -39,7 +44,7 @@
   
   <url>
     <loc>https://ncolumn.com/categories/diary/</loc>
-    <lastmod>2017-07-29T10:00:19+09:00</lastmod>
+    <lastmod>2017-08-29T00:57:37+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -57,13 +62,13 @@
   
   <url>
     <loc>https://ncolumn.com/</loc>
-    <lastmod>2017-08-03T20:42:04+09:00</lastmod>
+    <lastmod>2017-08-29T00:57:37+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ncolumn.com/post/</loc>
-    <lastmod>2017-08-03T20:42:04+09:00</lastmod>
+    <lastmod>2017-08-29T00:57:37+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -99,13 +104,19 @@
   
   <url>
     <loc>https://ncolumn.com/tags/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2/</loc>
-    <lastmod>2017-07-29T10:00:19+09:00</lastmod>
+    <lastmod>2017-08-29T00:57:37+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ncolumn.com/tags/%E3%83%96%E3%83%AD%E3%82%B0/</loc>
     <lastmod>2017-05-06T22:00:14+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ncolumn.com/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB/</loc>
+    <lastmod>2017-08-29T00:57:37+09:00</lastmod>
     <priority>0</priority>
   </url>
   
