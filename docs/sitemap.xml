@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ncolumn.com/post/glm-poisson/</loc>
+    <lastmod>2017-10-01T23:04:44+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ncolumn.com/post/gsacademy/</loc>
     <lastmod>2017-08-29T00:57:37+09:00</lastmod>
   </url>
@@ -55,6 +60,12 @@
   </url>
   
   <url>
+    <loc>https://ncolumn.com/tags/glm/</loc>
+    <lastmod>2017-10-01T23:04:44+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ncolumn.com/tags/hugo/</loc>
     <lastmod>2017-05-13T12:05:29+09:00</lastmod>
     <priority>0</priority>
@@ -62,13 +73,19 @@
   
   <url>
     <loc>https://ncolumn.com/</loc>
-    <lastmod>2017-08-29T00:57:37+09:00</lastmod>
+    <lastmod>2017-10-01T23:04:44+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ncolumn.com/post/</loc>
-    <lastmod>2017-08-29T00:57:37+09:00</lastmod>
+    <lastmod>2017-10-01T23:04:44+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ncolumn.com/tags/statistics/</loc>
+    <lastmod>2017-10-01T23:04:44+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -80,7 +97,7 @@
   
   <url>
     <loc>https://ncolumn.com/categories/tech/</loc>
-    <lastmod>2017-05-13T12:05:29+09:00</lastmod>
+    <lastmod>2017-10-01T23:04:44+09:00</lastmod>
     <priority>0</priority>
   </url>
   

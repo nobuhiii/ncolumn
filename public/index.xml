@@ -6,10 +6,19 @@
     <description>Recent content on NCOLUMN.COM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Aug 2017 00:57:37 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 01 Oct 2017 23:04:44 +0900</lastBuildDate>
     
 	<atom:link href="https://ncolumn.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>3章：一般化線形モデル（GLM）-ポアソン回帰-／データ解析のための統計モデリング入門（緑本）のメモ</title>
+      <link>https://ncolumn.com/post/glm-poisson/</link>
+      <pubDate>Sun, 01 Oct 2017 23:04:44 +0900</pubDate>
+      
+      <guid>https://ncolumn.com/post/glm-poisson/</guid>
+      <description>データ解析のための統計モデリング入門――一般化線形モデル・階層ベイズモデル・MCMC (確率と情報の科学) を読んでいる最中なのですが、実際に手</description>
+    </item>
     
     <item>
       <title>「G&#39;s ACADEMY TOKYO（ジーズアカデミー）」に申し込みました！</title>

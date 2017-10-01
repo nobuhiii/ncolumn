@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics on NCOLUMN.COM</title>
+    <link>https://ncolumn.com/tags/statistics/</link>
+    <description>Recent content in Statistics on NCOLUMN.COM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Oct 2017 23:04:44 +0900</lastBuildDate>
+    
+	<atom:link href="https://ncolumn.com/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>3章：一般化線形モデル（GLM）-ポアソン回帰-／データ解析のための統計モデリング入門（緑本）のメモ</title>
+      <link>https://ncolumn.com/post/glm-poisson/</link>
+      <pubDate>Sun, 01 Oct 2017 23:04:44 +0900</pubDate>
+      
+      <guid>https://ncolumn.com/post/glm-poisson/</guid>
+      <description>データ解析のための統計モデリング入門――一般化線形モデル・階層ベイズモデル・MCMC (確率と情報の科学) を読んでいる最中なのですが、実際に手</description>
+    </item>
+    
+  </channel>
+</rss>

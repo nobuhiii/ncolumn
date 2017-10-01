@@ -1,0 +1,868 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.21-DEV">
+    <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
+    <title>3章：一般化線形モデル（GLM）-ポアソン回帰-／データ解析のための統計モデリング入門（緑本）のメモ</title>
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://ncolumn.com/images/logo.png">
+    
+
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer', 'GTM-54V9Z43');</script>
+    
+
+    
+    <meta name="description" content="データ解析のための統計モデリング入門（緑本）の第3章「一般化繊系モデル（GLM）-ポアソン回帰-」についての備忘録です。">
+    <meta property="og:description" content="データ解析のための統計モデリング入門（緑本）の第3章「一般化繊系モデル（GLM）-ポアソン回帰-」についての備忘録です。">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="3章：一般化線形モデル（GLM）-ポアソン回帰-／データ解析のための統計モデリング入門（緑本）のメモ">
+    <meta property="og:url" content="/post/glm-poisson/">
+    <meta property="og:site_name" content="NCOLUMN.COM">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="NCOLUMN.COM">
+    <meta name="twitter:description" content="データ解析のための統計モデリング入門（緑本）の第3章「一般化繊系モデル（GLM）-ポアソン回帰-」についての備忘録です。">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://ncolumn.com/images/logo.png">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
+    
+    
+    <link rel="stylesheet" href="https://ncolumn.com/css/style-u6mk0ojoywresbx8iepslrmmhl4stuhrsxuwhkpwrkrx7mryjcaimasnk4pi.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://ncolumn.com/">NCOLUMN.COM</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://ncolumn.com/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://ncolumn.com/images/logo.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://ncolumn.com/#about">
+          <img class="sidebar-profile-picture" src="https://ncolumn.com/images/logo.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name"></h4>
+        
+          <h5 class="sidebar-profile-bio">Nobuhiii</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ncolumn.com/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ncolumn.com/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ncolumn.com/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ncolumn.com/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ncolumn.com/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://ncolumn.com/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      3章：一般化線形モデル（GLM）-ポアソン回帰-／データ解析のための統計モデリング入門（緑本）のメモ
+    </h1>
+  
+  <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-10-01T23:04:44&#43;09:00">
+      
+  October 1, 2017
+
+    </time>
+  
+  
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://ncolumn.com/categories/tech">tech</a>
+    
+  
+
+
+</div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<p><a href="https://www.amazon.co.jp/%E3%83%87%E3%83%BC%E3%82%BF%E8%A7%A3%E6%9E%90%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E7%B5%B1%E8%A8%88%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80%E2%80%95%E2%80%95%E4%B8%80%E8%88%AC%E5%8C%96%E7%B7%9A%E5%BD%A2%E3%83%A2%E3%83%87%E3%83%AB%E3%83%BB%E9%9A%8E%E5%B1%A4%E3%83%99%E3%82%A4%E3%82%BA%E3%83%A2%E3%83%87%E3%83%AB%E3%83%BBMCMC-%E7%A2%BA%E7%8E%87%E3%81%A8%E6%83%85%E5%A0%B1%E3%81%AE%E7%A7%91%E5%AD%A6-%E4%B9%85%E4%BF%9D-%E6%8B%93%E5%BC%A5/dp/400006973X">データ解析のための統計モデリング入門――一般化線形モデル・階層ベイズモデル・MCMC (確率と情報の科学) </a>を読んでいる最中なのですが、実際に手を動かすのが大事ということなので備忘録として残します。</p>
+
+<h2 id="一般化線形モデル-glm-とは">一般化線形モデル（GLM）とは</h2>
+
+<p>正規分布以外の確率分布を扱いたいときに使う線形モデル。</p>
+
+<p>（一般）線形モデルの特徴は以下の2つ。<br />
+- 応答変数 y が正規分布に従う<br />
+- 応答変数 y の平均がパラメータの一次結合で表される</p>
+
+<p>これを一般化させたものが一般化線形モデル。<br />
+- 応答変数 y が正規分布、二項分布、Poisson 分布など（厳密には「指数型分布族」に含まれる分布）に従う<br />
+- y の平均（や確率）をある関数で変化させたら、パラメータの一次結合で表わされる</p>
+
+<p>参考
+- <a href="http://www012.upp.so-net.ne.jp/doi/biostat/CT39/glm.pdf">一般化線形モデル入門の入門</a>
+- <a href="http://hosho.ees.hokudai.ac.jp/~kubo/stat/2014/nicoFeb/kubo2014nicoFeb.pdf">MCMC と階層ベイズモデル</a></p>
+
+<h3 id="使うデータ">使うデータ</h3>
+
+<p>著者のWebサイトに置かれている、架空の植物100個体の種子数データを用います。
+<a href="http://hosho.ees.hokudai.ac.jp/~kubo/stat/iwanamibook/fig/poisson/data3a.csv">http://hosho.ees.hokudai.ac.jp/~kubo/stat/iwanamibook/fig/poisson/data3a.csv</a></p>
+
+<p>x：個体の体サイズ<br />
+y：種子数<br />
+f：施肥処理の値</p>
+
+<h3 id="使うライブラリ">使うライブラリ</h3>
+
+<p>今回はPythonでやります。<br />
+Rだとglm()でGLMのあてはめができるのに対し、Pythonだとstatsmodelsというライブラリが使えるとのこと。scikit-learnでもできるみたいです。<br />
+その他はお決まりのpandas（データ操作用）、numpy（行列演算用）、matplotlib（グラフ描画用）を使います。</p>
+
+<pre><code class="language-py">import statsmodels.api as sm
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+</code></pre>
+
+<h3 id="データの取得">データの取得</h3>
+
+<p>pandasのread_csv()メソッドを使います。</p>
+
+<pre><code class="language-py">data = pd.read_csv(&quot;http://hosho.ees.hokudai.ac.jp/~kubo/stat/iwanamibook/fig/poisson/data3a.csv&quot;)
+</code></pre>
+
+<h3 id="データの概要">データの概要</h3>
+
+<pre><code class="language-py">data.head()
+</code></pre>
+
+<pre><code>y   x   f
+0   6   8.31    C
+1   6   9.44    C
+2   6   9.50    C
+3   12  9.07    C
+4   10  10.16   C
+</code></pre>
+
+<p>pandasのdescribe()メソッドでデータの概要を確認します。</p>
+
+<pre><code class="language-py">data.describe()
+</code></pre>
+
+<pre><code>    y   x
+count   100.000000  100.000000
+mean    7.830000    10.089100
+std 2.624881    1.008049
+min 2.000000    7.190000
+25% 6.000000    9.427500
+50% 8.000000    10.155000
+75% 10.000000   10.685000
+max 15.000000   12.400000
+</code></pre>
+
+<h3 id="データの可視化">データの可視化</h3>
+
+<p>統計モデリングにあたり、扱うデータを様々な図にして視覚的に把握しておくことが大事。<br />
+その際、データ同士の演算結果を図にするのはしばしば間違いのもとになるので、できるだけデータをそのまま用うのがよいとのこと。</p>
+
+<pre><code class="language-py">fig1 = plt.figure()
+ax1 = fig1.add_subplot(111)
+ax1.scatter(data.x[data.f==&quot;C&quot;], data.y[data.f==&quot;C&quot;], label=&quot;C&quot;,)
+ax1.scatter(data.x[data.f==&quot;T&quot;], data.y[data.f==&quot;T&quot;], label=&quot;T&quot;)
+ax1.legend(loc='upper left')
+plt.show(fig1)
+</code></pre>
+
+<p><img src="https://ncolumn.com/images/20171001_01.png" alt="散布図" /></p>
+
+<pre><code class="language-py">fig2 = plt.figure()
+ax2 = fig2.add_subplot(111)
+ax2.boxplot([data.y[data.f==&quot;C&quot;], data.y[data.f==&quot;T&quot;]], labels=[&quot;C&quot;, &quot;T&quot;])
+plt.show(fig2)
+</code></pre>
+
+<p><img src="https://ncolumn.com/images/20171001_02.png" alt="箱ひげ図" /></p>
+
+<h3 id="ポアソン回帰による統計モデリング">ポアソン回帰による統計モデリング</h3>
+
+<p>ポアソン分布をつかてデータのばらつきを表現できそう。
+個体ごとの平均種子数 λ が体サイズ x や施肥処理 f に影響を受けるモデルとなる。</p>
+
+<p>個体 i において種子数が y である確率 p(y|λ) はポアソン分布にしたがうとして、</p>
+
+<p>p(y|λ) = λ^y exp(-λ) / y!</p>
+
+<p>と仮定する。ある個体 i の平均種子数 λ を、</p>
+
+<p>λ = exp(β1 + β2 x)</p>
+
+<p>と仮定し、両辺の対数をとると、</p>
+
+<p>log λ = β1 + β2 x</p>
+
+<p>左辺はリンク関数、右辺は線形予測子と呼ばれる。ポアソン回帰のGLMで対数リンク関数を使う理由は以下。</p>
+
+<ul>
+<li>推定計算に都合がよい
+&ldquo;ポアソン分布の平均は非負&rdquo;という条件が、説明変数・パラメータの値によらず守られる</li>
+<li>わかりやすい
+要因の効果が積で表される</li>
+</ul>
+
+<p>対数尤度 log L が最大になるパラメータ β1 と β2 の推定値を決めることをポアソン回帰という。<br />
+このあてはめ（fitting）が手軽にできるライブラリがRでは用意されている。</p>
+
+<p>Rの場合</p>
+
+<pre><code class="language-R">model &lt;- glm(y ~ x, data = d, family = poisson)
+</code></pre>
+
+<p>今回は Python の statsmodels というライブラリを使ってみます。</p>
+
+<pre><code class="language-py">x = sm.add_constant(np.array(data.x).reshape(-1, 1))
+y = np.array(data.y).reshape(-1, 1)
+model1 = sm.GLM(y, x, family=sm.families.Poisson())
+res1 = model1.fit()
+</code></pre>
+
+<pre><code class="language-py">res1.summary()
+</code></pre>
+
+<pre><code>Generalized Linear Model Regression Results
+Dep. Variable:  y   No. Observations:   100
+Model:  GLM Df Residuals:   98
+Model Family:   Poisson Df Model:   1
+Link Function:  log Scale:  1.0
+Method: IRLS    Log-Likelihood: -235.39
+Date:   Sun, 01 Oct 2017    Deviance:   84.993
+Time:   22:07:28    Pearson chi2:   83.8
+No. Iterations: 4
+coef    std err z   P&gt;|z|   [0.025  0.975]
+const   1.2917  0.364   3.552   0.000   0.579   2.005
+x1  0.0757  0.036   2.125   0.034   0.006   0.145
+</code></pre>
+
+<p>constは切片、x1は傾きに対応しています。</p>
+
+<p>coef：推定値<br />
+std err：標準偏差<br />
+z：z値（Wald統計量）<br />
+Pr（&gt;|z|）：この場合に限定して言えば，平均が z 値の絶対値であり，標準偏差が1の正規分布におけるマイナス無限大からゼロまでの値をとる確率</p>
+
+<p>これらより以下が導かれます。</p>
+
+<p>λ = exp(1.29 + 0.0757 x)</p>
+
+<p>これを可視化します。</p>
+
+<pre><code>xx = np.arange(min(data.x), max(data.x), 1)
+fig1 = plt.figure()
+ax1 = fig1.add_subplot(111)
+ax1.scatter(data.x[data.f==&quot;C&quot;], data.y[data.f==&quot;C&quot;], label=&quot;C&quot;,)
+ax1.scatter(data.x[data.f==&quot;T&quot;], data.y[data.f==&quot;T&quot;], label=&quot;T&quot;)
+ax1.plot(xx, np.exp(1.2917+0.0757*xx))
+ax1.legend(loc='upper left')
+plt.show(fig1)
+fig1.savefig('glm.png')
+</code></pre>
+
+<p><img src="https://ncolumn.com/images/20171001_03.png" alt="glm" /></p>
+
+<p>今回、jupyter notebookを使ったのですが、学習用にもってこいですね。</p>
+
+<p>ただ、数式書きづらいな〜、そのままMarkdownで記述できないかな〜とか思っていたところ、ちょうどそのような内容で大変参考になる記事を見つけたので、次回は取り入れてみようと思います。<br />
+<a href="http://myenigma.hatenablog.com/entry/2016/02/20/183423">Jupyter (iPython) Notebookを使って技術ノート環境を構築する方法</a></p>
+
+<p>おわり。まだつづく。</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://ncolumn.com/tags/statistics/">statistics</a>
+
+  <a class="tag tag--primary tag--small" href="https://ncolumn.com/tags/glm/">glm</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ncolumn.com/post/gsacademy/" data-tooltip="「G&#39;s ACADEMY TOKYO（ジーズアカデミー）」に申し込みました！">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fncolumn.com%2fpost%2fglm-poisson%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fncolumn.com%2fpost%2fglm-poisson%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fncolumn.com%2fpost%2fglm-poisson%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2017 NCOLUMN.COM. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://ncolumn.com/post/gsacademy/" data-tooltip="「G&#39;s ACADEMY TOKYO（ジーズアカデミー）」に申し込みました！">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fncolumn.com%2fpost%2fglm-poisson%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fncolumn.com%2fpost%2fglm-poisson%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fncolumn.com%2fpost%2fglm-poisson%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fncolumn.com%2fpost%2fglm-poisson%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fncolumn.com%2fpost%2fglm-poisson%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fncolumn.com%2fpost%2fglm-poisson%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://ncolumn.com/images/logo.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name"></h4>
+    
+      <div id="about-card-bio">Nobuhiii</div>
+    
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Japan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://ncolumn.com/post/glm-poisson/">
+                <h3 class="media-heading">3章：一般化線形モデル（GLM）-ポアソン回帰-／データ解析のための統計モデリング入門（緑本）のメモ</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">データ解析のための統計モデリング入門――一般化線形モデル・階層ベイズモデル・MCMC (確率と情報の科学) を読んでいる最中なのですが、実際に手</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://ncolumn.com/post/gsacademy/">
+                <h3 class="media-heading">「G&#39;s ACADEMY TOKYO（ジーズアカデミー）」に申し込みました！</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">ここ1〜1.5年くらい、開発がやりたいなぁというモヤモヤした気持ちでいました。 自分の手でモノ・サービスを作りたいという。 今までは周りの環境に</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://ncolumn.com/post/uxjam19/">
+                <h3 class="media-heading">「UX JAM 19」(UX MILK主催)というUXイベントに参加してきました！</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">先日、2017年7月20日に開催された「UX JAM 19」というUX MILKさん主催のイベントに参加してきました。毎回人気でイベントページが作られ</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://ncolumn.com/post/value/">
+                <h3 class="media-heading">スキルとか市場価値について、自分のキャリアを考えるときに思ったこと</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">自分は何がやりたいんや〜、どんなキャリアを進むんや〜、と考える機会があったので、そのときに考えたことを思考の整理という意味も込めて残しておこ</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://ncolumn.com/post/web-accessibility/">
+                <h3 class="media-heading">「デザイニングWebアクセシビリティ」（書籍）を読んで気になった点のまとめ</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">「デザイニングWebアクセシビリティ - アクセシブルな設計やコンテンツ制作のアプローチ」（太田良典さん、伊原力也さん著）を読んだので気になった</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://ncolumn.com/post/hugo/">
+                <h3 class="media-heading">Hugo &#43; GitHub Pagesで独自メインのブログ作ってみました</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">前回の記事、「Webマーケターのはしくれ、ブログはじめました」の最後にも書いたとおり、このブログは静的サイトジェネレータの『Hugo』とGI</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://ncolumn.com/post/first-post/">
+                <h3 class="media-heading">Webマーケターのはしくれ、ブログはじめました</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">2017年のGW、ある程度まとまった時間がとれたのでブログをはじめることにしました。長きにわたって、やるやる詐欺状態でしたが、自分の置かれる</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://ncolumn.com/post/">
+                <h3 class="media-heading">Posts</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         8 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://ncolumn.com/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+
+
+<script src="https://ncolumn.com/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/ncolumn.com\/post\/glm-poisson\/';
+          
+            this.page.identifier = '\/post\/glm-poisson\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+
+    
+  </body>
+  
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54V9Z43"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+</html>
+
