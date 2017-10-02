@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ncolumn.com/post/progate/</loc>
+    <lastmod>2017-10-03T00:53:41+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ncolumn.com/post/glm-poisson/</loc>
     <lastmod>2017-10-01T23:04:44+09:00</lastmod>
   </url>
@@ -73,13 +78,13 @@
   
   <url>
     <loc>https://ncolumn.com/</loc>
-    <lastmod>2017-10-01T23:04:44+09:00</lastmod>
+    <lastmod>2017-10-03T00:53:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ncolumn.com/post/</loc>
-    <lastmod>2017-10-01T23:04:44+09:00</lastmod>
+    <lastmod>2017-10-03T00:53:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -97,19 +102,19 @@
   
   <url>
     <loc>https://ncolumn.com/categories/tech/</loc>
-    <lastmod>2017-10-01T23:04:44+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ncolumn.com/tags/uiux/</loc>
-    <lastmod>2017-08-03T20:42:04+09:00</lastmod>
+    <lastmod>2017-10-03T00:53:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ncolumn.com/categories/uiux/</loc>
     <lastmod>2017-08-03T20:42:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ncolumn.com/tags/uiux/</loc>
+    <lastmod>2017-10-03T00:53:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -128,6 +133,12 @@
   <url>
     <loc>https://ncolumn.com/tags/%E3%83%96%E3%83%AD%E3%82%B0/</loc>
     <lastmod>2017-05-06T22:00:14+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ncolumn.com/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</loc>
+    <lastmod>2017-10-03T00:53:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
